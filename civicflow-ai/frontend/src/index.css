@@ -1,0 +1,72 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+@theme {
+  --font-display: "Space Grotesk", "Inter", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  --color-paper: #FAFAF8;
+  --color-paper-dim: #F1F0EA;
+  --color-ink: #1C2321;
+  --color-ink-soft: #4A524F;
+  --color-line: #DEDCD2;
+
+  --color-signal: #E8871E;
+  --color-signal-dark: #C46F14;
+  --color-civic: #1B3B6F;
+  --color-civic-light: #2E578F;
+  --color-success: #2F7A4D;
+  --color-success-bg: #E7F3EC;
+  --color-warn: #C1442E;
+  --color-warn-bg: #FBEAE6;
+  --color-amber: #B8860B;
+  --color-amber-bg: #FBF3DD;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+.animate-scanline {
+  animation: scanline 1.6s ease-in-out infinite;
+}
+
+@keyframes pop-in {
+  0% { opacity: 0; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1); }
+}
+.animate-pop-in {
+  animation: pop-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes toast-in {
+  0% { opacity: 0; transform: translateY(-8px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-toast-in {
+  animation: toast-in 0.25s ease-out forwards;
+}
+
+::selection {
+  background: var(--color-signal);
+  color: white;
+}
+
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 2px solid var(--color-civic);
+  outline-offset: 2px;
+}
